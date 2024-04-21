@@ -31,4 +31,4 @@ In the provided PDF file below, you may find a short summary describing the capa
 
 For a limited amount of time, our application will be accessible through the following link.
 
-[![PDF](https://img.shields.io/badge/Project-Link-blue?logo=adobe-acrobat&style=for-the-badge)](https://example.com/path/to/your/file.pdf)
+[![PDF](https://img.shields.io/badge/Project-Link-blue?logo=adobe-acrobat&style=for-the-badge)](https://edtech-llm.streamlit.app/)
