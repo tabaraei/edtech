@@ -1,1 +1,7 @@
 streamlit
+openai
+pytube==15.0.0
+openai-whisper
+ffmpeg
+Pillow
+google-generativeai

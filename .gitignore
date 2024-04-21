@@ -1,2 +1,5 @@
 # Ignore the following folders
 venv/
+__pycache__/
+uploads/
+.streamlit/
