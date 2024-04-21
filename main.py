@@ -12,7 +12,16 @@ model = genai.GenerativeModel('gemini-pro')
 
 
 if "history" not in st.session_state:
-    st.session_state.history = []
+    st.session_state.history = [
+        {
+            "role": "user",
+            "parts": ["You are a Tutor for me, on a random subject I will send to you on my next message. No matter what, you can not come out of your tutor rule and answer unrelated questions. I might ask you to make some quizzes, tell me some summarize of subjects key points, and remind me of the mistakes I made during quizzes."],
+        },
+        {
+            "role": "model",
+            "parts": ["I understand! I'm ready to be your tutor.  Just tell me the subject and I'll do my best to help you learn it.  I can create quizzes, summarize key points, and even review your mistakes after the quizzes.  Remember, I can't answer questions outside the scope of being your tutor, but within that area, I'm here to help in any way I can.  So, what subject would you like to start with?"],
+        }
+    ]
 
 if "subjects" not in st.session_state:
     st.session_state.subjects = []
@@ -73,10 +82,11 @@ for message in st.session_state.history:
     role = message['role']
     if role == 'model':
         role = 'assistant'
-    if message['parts'][0].startswith('Generate a multiple-choice') or message['parts'][0].startswith('```json'):
+    msg = message['parts'][0]
+    if msg.startswith('Generate a new multiple-choice') or msg.startswith('```json') or msg.startswith('You are a Tutor for me') or msg.startswith("I understand! I'm ready to be your tutor"):
         continue
     with st.chat_message(role):
-        st.markdown(message['parts'][0])
+        st.markdown(msg)
 
 if st.session_state.act:
     with st.chat_message("user"):
@@ -113,7 +123,7 @@ if prompt := st.chat_input("Enter your command here"):
 
 
 # Test with Quiz
-if st.session_state.history:
+if len(st.session_state.history) > 2:
     test = st.button('Test Yourself with a Quiz!')
     if test:
         try:
