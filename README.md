@@ -25,7 +25,7 @@ The project was developed and tested on the Windows platform, using Python versi
 
 In the provided PDF file below, you may find a short summary describing the capabilities of our application.
 
-[![PDF](https://img.shields.io/badge/File-PDF-red?logo=adobe-acrobat&style=for-the-badge)](https://example.com/path/to/your/file.pdf)
+[![PDF](https://img.shields.io/badge/File-PDF-red?logo=adobe-acrobat&style=for-the-badge)](https://github.com/tabaraei/edtech/blob/master/presentation/expecto_patronull_presentation.pdf)
 
 ## Using the application
 
