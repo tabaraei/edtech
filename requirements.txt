@@ -2,6 +2,6 @@ streamlit
 openai
 pytube==15.0.0
 openai-whisper
-ffmpeg
+ffmpeg-python
 Pillow
 google-generativeai
