@@ -4,9 +4,12 @@ This project was developed during the "GDSC AI Hackathon" managed by Google Deve
 
 ## Abstract
 
-Through the development of this application, we aim to leverage LLMs to enable personalized training paths for individuals. This app empowers users from diverse backgrounds and with different learning needs to interact effortlessly, ask direct questions, extract text from various multimedia formats (images, audio, video, YouTube links)
+Throughout the development of this application, we aimed to leverage the power of Gemini and OpenAI LLMs to enable personalized training paths for individuals. The developed app empowers users from diverse backgrounds and learning needs to:
 
-Users can instruct the app to perform a range of actions such as summarizing, explaining, and expanding on topics of interest. Moreover, within an engaging environment, users are encouraged to participate in quizzes, fostering an active learning journey. This interactive approach enhances user engagement and facilitates a more dynamic learning experience.
+1. Interact directly with their tutor bot through prompts and ask for explanation, summarization, and expansion of the topic
+2. Add supplementary educational multimedia (including images, audio recordings, and video) to utilize their transcripts as a prompt
+3. Seek further explanations on YouTube tutorials
+4. Participate in engaging quizzes to benefit active recall from their mistakes with a dynamic learning experience.
 
 ## Installation
 The project was developed and tested on the Windows platform, using Python version `3.9.13`.
@@ -32,3 +35,17 @@ In the provided PDF file below, you may find a short summary describing the capa
 For a limited amount of time, our application will be accessible through the following link.
 
 [![PDF](https://img.shields.io/badge/Project-Link-blue?logo=adobe-acrobat&style=for-the-badge)](https://edtech-llm.streamlit.app/)
+
+## Project Gallery
+
+| Chatbot | Quiz |
+| --- | --- |
+| ![chatbot](https://github.com/tabaraei/edtech/assets/36487462/6015878e-020c-4b39-91eb-349b9bfe3814) | ![quiz](https://github.com/tabaraei/edtech/assets/36487462/6e649122-77bc-4118-953e-d5f5bcdfbcbc) |
+
+| Image | Audio |
+| --- | --- |
+| ![image](https://github.com/tabaraei/edtech/assets/36487462/39ec7ebf-faa3-4dca-9f53-e932d754dc20) | ![audio](https://github.com/tabaraei/edtech/assets/36487462/c976c484-9891-40f4-859c-491e17196039) |
+
+| Video | YouTube |
+| --- | --- |
+| ![YouTube](https://github.com/tabaraei/edtech/assets/36487462/916546aa-28d2-4b97-9c74-f7c19690d0f8) | ![video](https://github.com/tabaraei/edtech/assets/36487462/27d42baa-65de-4a37-9e00-64a8bd41129a) |
