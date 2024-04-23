@@ -23,8 +23,8 @@ if "history" not in st.session_state:
         }
     ]
 
-if "subjects" not in st.session_state:
-    st.session_state.subjects = []
+# if "subjects" not in st.session_state:
+#     st.session_state.subjects = []
 
 if "act" not in st.session_state:
     st.session_state.act = None
@@ -44,12 +44,12 @@ with st.sidebar:
     # Title
     st.title("💬 Private Tutor")
 
-    # Subject
-    name = st.text_input('New Subject')
-    if st.button('Add Subject') and name:
-        st.session_state.subjects.append(name)
-    subject = st.selectbox('Select a subject to learn', st.session_state.subjects)
-    st.markdown("<hr>", unsafe_allow_html=True)
+    # # Subject
+    # name = st.text_input('New Subject')
+    # if st.button('Add Subject') and name:
+    #     st.session_state.subjects.append(name)
+    # subject = st.selectbox('Select a subject to learn', st.session_state.subjects)
+    # st.markdown("<hr>", unsafe_allow_html=True)
 
     # Extract Text
     extract_method = st.selectbox('Choose your educational supplement', ['File Upload', 'YouTube Link'])
@@ -75,8 +75,8 @@ with st.sidebar:
             }
     
 
-if subject:
-    st.title(f'Lets learn {subject} together!')
+# if subject:
+#     st.title(f'Lets learn {subject} together!')
 
 for message in st.session_state.history:
     role = message['role']
@@ -106,7 +106,7 @@ if st.session_state.act:
         st.session_state.act = None
         st.session_state.extracted_text = None
 
-if prompt := st.chat_input("Enter your command here"):
+if prompt := st.chat_input("Enter your prompt here"):
     with st.chat_message("user"):
         st.markdown(prompt)
         st.session_state.history.append({
