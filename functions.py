@@ -12,17 +12,29 @@ def extract_text_from_file(uploaded_file, directory):
         model = genai.GenerativeModel('gemini-pro-vision')
         if uploaded_file.type.startswith('image'):
             image = Image.open(uploaded_file)
-            # st.image(image, caption='Uploaded Image', use_column_width=True)
             response = model.generate_content(image)
             return response.text
 
         elif uploaded_file.type.startswith('audio') or uploaded_file.type.startswith('video'):
-            file_path = os.path.join(directory, 'uploads', uploaded_file.name)
+            # Check directory existence
+            uploads_directory = os.path.join(directory, 'uploads')
+            if not os.path.exists(uploads_directory):
+                os.makedirs(uploads_directory)
+
+            # Download the file
+            file_path = os.path.join(uploads_directory, uploaded_file.name)
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
 
+            # Extract the text
             model = whisper.load_model("base")
             transcript = model.transcribe(file_path)
+
+            # Delete the file
+            if os.path.exists(file_path):
+                os.remove(file_path)
+
+            # Return the transcript
             return transcript['text']
 
     else:
@@ -30,14 +42,26 @@ def extract_text_from_file(uploaded_file, directory):
 
 
 def extract_text_from_yt(link, directory):
+    # Check directory existence
+    uploads_directory = os.path.join(directory, 'uploads')
+    if not os.path.exists(uploads_directory):
+        os.makedirs(uploads_directory)
+
+    # Download the file
+    file_path = os.path.join(uploads_directory, 'YouTube.mp3')
     yt = YouTube(link)
     stream = yt.streams.filter(only_audio=True)[0]
-
-    file_path = os.path.join(directory, 'uploads/YouTube.mp3')
     stream.download(filename=file_path)
 
+    # Extract the text
     model = whisper.load_model("base")
     transcript = model.transcribe(file_path)
+
+    # Delete the file
+    if os.path.exists(file_path):
+        os.remove(file_path)
+
+    # Return the transcript
     return transcript['text']
 
 
